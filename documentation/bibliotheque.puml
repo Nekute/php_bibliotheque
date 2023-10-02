@@ -1,7 +1,7 @@
 @startuml
-abstract class Medias{
+abstract class Media{
     #String titre
-    #getInformations()
+    +getInformations()
 }
 class Livre {
     -String isbn
@@ -19,18 +19,17 @@ class Magazine{
 }
 
 class Adherent{
-    -String numeroAdherent
+    -String numero
     -String nom
     -String prenom
     -String email
     -Datetime dateAdhesion
     -genererNumero()
-    +renouvelerAdhesion()
     +getInformations()
+    +checkAdhesionValide()
+    +renouvelerAdhesion()
 }
 class Emprunt{
-    -Adherent adherent
-    -Medias media
     -Datetime dateEmprunt
     -Datetime dateRetourEstimée
     -Datetime dateRetourReel
@@ -40,11 +39,11 @@ class Emprunt{
     +checkEmpruntDureeDepassee()
 
 }
-Medias <|-- Livre
-Medias <|-- BluRay
-Medias <|-- Magazine
+Media <|-- Livre
+Media <|-- BluRay
+Media <|-- Magazine
 
-Adherent-->Emprunt : fait
-Emprunt --> Medias : contient
+Adherent "1..1" <-- Emprunt : fait >
+Emprunt --> "1..1" Media : contient >
 
 @enduml
