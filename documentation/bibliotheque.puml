@@ -1,0 +1,50 @@
+@startuml
+abstract class Medias{
+    #String titre
+    #getInformations()
+}
+class Livre {
+    -String isbn
+    -String auteur
+    -int nbPages
+}
+class BluRay{
+    -String auteur
+    -String duree
+    -int anneeSortie
+}
+class Magazine{
+    -int numero
+    -Datetime datePublication
+}
+
+class Adherent{
+    -String numeroAdherent
+    -String nom
+    -String prenom
+    -String email
+    -Datetime dateAdhesion
+    -genererNumero()
+    +renouvelerAdhesion()
+    +getInformations()
+}
+class Emprunt{
+    -Adherent adherent
+    -Medias media
+    -Datetime dateEmprunt
+    -Datetime dateRetourEstimée
+    -Datetime dateRetourReel
+    +getInformations()
+    +checkEmpruntEnCours()
+    +checkEmpruntEnAlerte()
+    +checkEmpruntDureeDepassee()
+
+}
+Medias <|-- Livre
+Medias <|-- BluRay
+Medias <|-- Magazine
+
+Adherent-->Emprunt : fait
+Emprunt --> Medias : contient
+
+@enduml
