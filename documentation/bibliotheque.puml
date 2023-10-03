@@ -40,10 +40,19 @@ class Emprunt{
     +checkEmpruntDureeDepassee()
 
 }
+class Bibliotheque{
+    -String nom
+    +ajouterAdherent()
+    +ajouterMedia()
+    +emprunterMedia()
+}
+
+Bibliotheque-->"0..*"Media
+Bibliotheque-->"0..*"Adherent
+Bibliotheque-->"0..*"Emprunt
 Media <|-- Livre
 Media <|-- BluRay
 Media <|-- Magazine
-
 Adherent "1..1" <-- Emprunt : fait >
 Emprunt --> "1..1" Media : contient >
 
