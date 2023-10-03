@@ -39,7 +39,7 @@ if (str_contains($adherent->getNumero(), "AD-")
 echo "\n";
 echo "Test n°4 : vérifier que l’adhésion est valable (valide) quand la date d’adhésion n’est pas dépassée (moins d’un an) \n";
 $adherent = new \App\Adherent("Price", "Chloe", "chloeprice@gmail.com", "12/12/2022");
-if ($adherent->checkAdhesionValide()){
+if ($adherent->checkAdhesionValide()) {
     echo GREEN . "Date d'adhesion : {$adherent->getDateAdhesion()->format("d/m/Y")}, date valide" . RESET;
 } else {
     echo RED . "Date d'adhesion : {$adherent->getDateAdhesion()->format("d/m/Y")}, date invalide" . RESET;
@@ -48,9 +48,9 @@ if ($adherent->checkAdhesionValide()){
 echo "\n";
 echo "Test n°5 : vérifier que l’adhésion est renouvelée \n";
 $adherent = new \App\Adherent("Price", "Chloe", "chloeprice@gmail.com", "12/12/2022");
-echo "Date initiale de l'adherent : ".$adherent->getDateAdhesion()->format("d/m/Y")."\n";
-if ($adherent->renouvelerAdhesion()){
-    echo "Date renouvelée de l'adherent : ".$adherent->getDateAdhesion()->format("d/m/Y")."\n";
+echo "Date initiale de l'adherent : " . $adherent->getDateAdhesion()->format("d/m/Y") . "\n";
+if ($adherent->renouvelerAdhesion()) {
+    echo "Date renouvelée de l'adherent : " . $adherent->getDateAdhesion()->format("d/m/Y") . "\n";
     echo GREEN . "Test ok" . RESET;
 } else {
     echo RED . "Test pas ok" . RESET;

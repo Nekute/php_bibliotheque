@@ -31,12 +31,13 @@ class Adherent{
 }
 class Emprunt{
     -Datetime dateEmprunt
-    -Datetime dateRetourEstimée
+    -Datetime dateRetourEstimee
     -Datetime dateRetourReel
     +getInformations()
     +checkEmpruntEnCours()
     +checkEmpruntEnAlerte()
     +checkEmpruntDureeDepassee()
+    -calculerDureeRetourEstimee()
 
 }
 Media <|-- Livre
