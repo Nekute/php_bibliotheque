@@ -28,15 +28,15 @@ class Emprunt
         return \DateTime::createFromImmutable($this->dateEmprunt->add($this->media->getDureeEmprunt()));
     }
 
-    public function checkEmpruntEnCours(): bool {
+    public function checkIfEnCours(): bool {
         return $this->dateRetourReel === null;
     }
 
-    public function checkEmpruntEnAlerte(): bool {
+    public function checkIfEnAlerte(): bool {
         return $this->dateRetourEstimee > new \DateTime() && $this->dateRetourReel === null;
     }
 
-    public function checkEmpruntDureeDepassee() : bool {
+    public function checkIfDureeDepassee(): bool {
         return $this->dateRetourReel != null && $this->dateRetourReel > $this->dateRetourEstimee;
     }
 
@@ -106,8 +106,13 @@ class Emprunt
     /**
      * @param \DateTime $dateRetourReel
      */
-    public function setDateRetourReel(\DateTime $dateRetourReel): void {
-        $this->dateRetourReel = $dateRetourReel;
+    public function aRendu(?string $date): void {
+        if ($date != null){
+            $date = \DateTime::createFromFormat("d/m/Y", $date);
+        } else {
+            $date = new \DateTime();
+        }
+        $this->dateRetourReel = $date;
     }
 
 }

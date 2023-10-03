@@ -33,11 +33,11 @@ class Emprunt{
     -Datetime dateEmprunt
     -Datetime dateRetourEstimee
     -Datetime dateRetourReel
+    -calculerDureeRetourEstimee()
     +getInformations()
     +checkEmpruntEnCours()
     +checkEmpruntEnAlerte()
     +checkEmpruntDureeDepassee()
-    -calculerDureeRetourEstimee()
 
 }
 Media <|-- Livre

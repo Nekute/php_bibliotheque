@@ -22,7 +22,7 @@ class Adherent
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->email = $email;
-        if (gettype($dateAdhesion) == "string") {
+        if ( $dateAdhesion != null) {
             $dateAdhesion = \DateTime::createFromFormat("d/m/Y", $dateAdhesion);
         } else {
             $dateAdhesion = new \DateTime();
